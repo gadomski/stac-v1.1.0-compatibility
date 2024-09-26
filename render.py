@@ -1,7 +1,9 @@
 import dataclasses
 import importlib.metadata
+import json
 from dataclasses import dataclass
 from pathlib import Path
+from tempfile import TemporaryDirectory
 
 import jinja2
 import pystac.version
@@ -64,6 +66,28 @@ def pystac() -> Repository:
     )
 
 
+def stac_rs() -> Repository:
+    # We test the python bindings, but that checks out the whole repo well 'nuff
+    import stacrs
+
+    item = stacrs.read(str(examples / "simple-item.json"))
+    with TemporaryDirectory() as directory:
+        path = f"{directory}/item.json"
+        stacrs.write(path, item)
+        with open(path) as f:
+            item = json.load(f)
+            write = item["stac_version"] == "1.1.0"
+    return Repository(
+        "stac-rs",
+        "https://github.com/stac-utils/stac-rs",
+        "Tools and libraries for the SpatioTemporal Asset Catalog (STAC) specification, written in Rust",
+        version="v0.10.1",  # FIXME report this from the Python package
+        read=True,
+        write=write,
+        notes="",
+    )
+
+
 def stac_server() -> Repository:
     # This was manual, but we only have to do it once so :shrug:
     return Repository(
@@ -77,7 +101,9 @@ def stac_server() -> Repository:
     )
 
 
-repositories = [dataclasses.asdict(d) for d in [pgstac(), pystac(), stac_server()]]
+repositories = [
+    dataclasses.asdict(d) for d in [pgstac(), pystac(), stac_rs(), stac_server()]
+]
 
 
 def emoji(value: bool) -> str:
