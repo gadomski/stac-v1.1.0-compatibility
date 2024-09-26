@@ -8,9 +8,9 @@ If you'd like to see a repository added, please open [an issue](https://github.c
 
 ## Repository
 
-| Name | Version | Description | Read | Write |
-| -- | -- | -- | -- | -- |
-| [pystac](https://github.com/stac-utils/pystac) | 1.10.1 | Python library for working with any SpatioTemporal Asset Catalog (STAC) | ✅ | ❌ |
+| Name | Version | Description | Read | Write | Notes |
+| -- | -- | -- | -- | -- | -- |
+| [pystac](https://github.com/stac-utils/pystac) | 1.10.1 | Python library for working with any SpatioTemporal Asset Catalog (STAC) | ✅ | ❌ | On write, STAC version is 1.0.0 |
 
 ## Usage
 

@@ -24,6 +24,7 @@ class Repository:
     version: str
     read: bool
     write: bool
+    notes: str | None
 
 
 def pystac() -> Repository:
@@ -34,6 +35,11 @@ def pystac() -> Repository:
     d = pystac_item.to_dict()
     write = d["stac_version"] == "1.1.0"
 
+    if write:
+        notes = None
+    else:
+        notes = f"On write, STAC version is {d['stac_version']}"
+
     return Repository(
         "pystac",
         "https://github.com/stac-utils/pystac",
@@ -41,6 +47,7 @@ def pystac() -> Repository:
         version=importlib.metadata.version("pystac"),
         read=read,
         write=write,
+        notes=notes,
     )
 
 
