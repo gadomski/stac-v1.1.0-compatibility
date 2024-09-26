@@ -1,3 +1,6 @@
 [submodule "submodules/stac-server"]
 	path = submodules/stac-server
 	url = git@github.com:stac-utils/stac-server.git
+[submodule "submodules/pgstac"]
+	path = submodules/pgstac
+	url = git@github.com:stac-utils/pgstac.git

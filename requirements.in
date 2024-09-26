@@ -1,3 +1,4 @@
 jinja2
+pre-commit
 pystac
 requests

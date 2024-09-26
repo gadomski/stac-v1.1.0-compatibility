@@ -27,6 +27,19 @@ class Repository:
     notes: str
 
 
+def pgstac() -> Repository:
+    # Another manual one
+    return Repository(
+        "pgstac",
+        "https://github.com/stac-utils/pgstac",
+        "Schema, functions and a python library for storing and accessing STAC collections and items in PostgreSQL",
+        version="0.9.1",
+        read=True,
+        write=True,
+        notes="",
+    )
+
+
 def pystac() -> Repository:
     import pystac
 
@@ -64,7 +77,7 @@ def stac_server() -> Repository:
     )
 
 
-repositories = [dataclasses.asdict(d) for d in [pystac(), stac_server()]]
+repositories = [dataclasses.asdict(d) for d in [pgstac(), pystac(), stac_server()]]
 
 
 def emoji(value: bool) -> str:
@@ -75,7 +88,9 @@ def emoji(value: bool) -> str:
 
 
 environment = Environment(
-    loader=PackageLoader("render"), autoescape=jinja2.select_autoescape()
+    loader=PackageLoader("render"),
+    autoescape=jinja2.select_autoescape(),
+    keep_trailing_newline=True,
 )
 environment.filters["emoji"] = emoji
 template = environment.get_template("README.md.jinja2")
