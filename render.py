@@ -24,7 +24,7 @@ class Repository:
     version: str
     read: bool
     write: bool
-    notes: str | None
+    notes: str
 
 
 def pystac() -> Repository:
@@ -51,7 +51,20 @@ def pystac() -> Repository:
     )
 
 
-repositories = [dataclasses.asdict(d) for d in [pystac()]]
+def stac_server() -> Repository:
+    # This was manual, but we only have to do it once so :shrug:
+    return Repository(
+        "stac-server",
+        "https://github.com/stac-utils/stac-server",
+        "A Node-based STAC API, AWS Serverless, OpenSearch",
+        version="3.8.0",
+        read=True,
+        write=True,
+        notes="",
+    )
+
+
+repositories = [dataclasses.asdict(d) for d in [pystac(), stac_server()]]
 
 
 def emoji(value: bool) -> str:
