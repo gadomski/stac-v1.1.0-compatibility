@@ -81,7 +81,7 @@ def stac_rs() -> Repository:
         "stac-rs",
         "https://github.com/stac-utils/stac-rs",
         "Tools and libraries for the SpatioTemporal Asset Catalog (STAC) specification, written in Rust",
-        version="v0.10.1",  # FIXME report this from the Python package
+        version="0.10.1",  # FIXME report this from the Python package
         read=True,
         write=write,
         notes="",
