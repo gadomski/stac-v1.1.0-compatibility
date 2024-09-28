@@ -1,0 +1,24 @@
+{
+  "name": "stac-v1.1.0-compatibility",
+  "version": "0.1.0",
+  "description": "Utility package for testing STAC v1.1.0 compatibility in JS projects",
+  "main": "check.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gadomski/stac-v1.1.0-compatibility.git"
+  },
+  "author": "Pete Gadomski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gadomski/stac-v1.1.0-compatibility/issues"
+  },
+  "homepage": "https://github.com/gadomski/stac-v1.1.0-compatibility#readme",
+  "dependencies": {
+    "@radiantearth/stac-fields": "^1.5.0",
+    "@radiantearth/stac-migrate": "^2.0.0"
+  }
+}

@@ -6,10 +6,10 @@ If you'd like to see a repository added, please open [an issue](https://github.c
 
 ## Repository
 
-| Name | Version | Description | Read | Write | Notes |
-| -- | -- | -- | -- | -- | -- |
+| Name | Version | Language | Description | Read | Write | Notes |
+| -- | -- | -- | -- | -- | -- | -- |
 {% for repository in repositories -%}
-| [{{ repository.name }}]({{ repository.url }}) | {{ repository.version }} | {{ repository.description }} | {{ repository.read | emoji }} | {{ repository.write | emoji }} | {{ repository.notes }} |
+| [{{ repository.name }}]({{ repository.url }}) | {{ repository.version }} | {{ repository.language }} | {{ repository.description }} | {{ repository.read | emoji }} | {{ repository.write | emoji }} | {{ repository.notes }} |
 {% endfor %}
 ## Usage
 

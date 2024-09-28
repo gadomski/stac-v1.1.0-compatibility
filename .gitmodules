@@ -4,3 +4,6 @@
 [submodule "submodules/pgstac"]
 	path = submodules/pgstac
 	url = git@github.com:stac-utils/pgstac.git
+[submodule "submodules/stac-browser"]
+	path = submodules/stac-browser
+	url = git@github.com:radiantearth/stac-browser.git
